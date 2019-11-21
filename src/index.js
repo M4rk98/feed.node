@@ -33,6 +33,7 @@ const server = new ApolloServer({
     context: async () => {
         return {
             models,
+            secret: process.env.SECRET,
             loaders: {
                 user: new DataLoader(keys =>
                     loaders.user.batchUsers(keys, models),
