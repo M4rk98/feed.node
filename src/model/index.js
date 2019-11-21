@@ -11,10 +11,10 @@ sequelize = new Sequelize(
             ssl: true
         }
     });
-//console.log(sequelize);
 
 const models = {
-    User: sequelize.import('./User')
+    User: sequelize.import('./User'),
+    News: sequelize.import('./News')
 };
 
 Object.keys(models).forEach(key => {

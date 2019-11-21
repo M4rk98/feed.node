@@ -29,6 +29,16 @@ const user = (sequelize, DataTypes) => {
         }
     });
 
+    User.associate = models => {
+        User.hasMany(models.News, {
+            foreignKey: {
+                name: 'author',
+                allowNull: false
+            },
+            onDelete: 'CASCADE' }
+        )
+    };
+
     User.findByLogin = async login => {
         let user = await User.findOne({
             where: { username: login },

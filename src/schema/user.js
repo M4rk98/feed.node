@@ -10,7 +10,11 @@ export default gql`
             username: String!,
             email: String!,
             password: String!
-        ): String
+        ): Token
+    }
+    
+    type Token {
+        token: String
     }
     
     type User {
