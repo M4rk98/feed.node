@@ -39,18 +39,10 @@ const user = (sequelize, DataTypes) => {
         )
     };
 
-    User.findByLogin = async login => {
-        let user = await User.findOne({
-            where: { username: login },
+    User.findByName = async username => {
+        return User.findOne({
+            where: {username: username},
         });
-
-        if (!user) {
-            user = await User.findOne({
-                where: { email: login },
-            });
-        }
-
-        return user;
     };
 
     User.beforeCreate(async user => {
