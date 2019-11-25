@@ -13,12 +13,13 @@ export const NewsResolver = {
                 content,
                 highlighted
             },
-            {models, secret},
+            {models, reqUser},
         ) => {
-            const article = await models.News.create({
+            await models.News.create({
                 title,
                 content,
-                highlighted
+                highlighted,
+                author: reqUser.id
             });
 
             return 200;
