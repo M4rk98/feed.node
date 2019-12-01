@@ -3,7 +3,7 @@ import DataLoader from "dataloader";
 import loaders from "../loaders";
 import {requestUser} from "../util/RequestUser";
 
-async function getContext(conn, req) {
+async function getContext({conn, req}) {
     if(req) {
         return await getRequestInterceptor(req)
     }
@@ -15,7 +15,6 @@ async function getContext(conn, req) {
 
 async function getRequestInterceptor(req) {
     const reqUser = await requestUser(req);
-
     return {
         models,
         reqUser,
