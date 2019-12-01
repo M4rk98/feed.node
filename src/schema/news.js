@@ -18,7 +18,7 @@ export default gql`
         id: ID!,
         title: String,
         content: String,
-        user: User!,
+        author: User!,
         highlighted: Int,
         createdAt: Date
     }
