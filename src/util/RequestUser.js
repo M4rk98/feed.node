@@ -2,8 +2,9 @@ import {AuthenticationError} from "apollo-server-errors";
 import jwt from 'jsonwebtoken';
 
 export const requestUser = async req => {
-    const token = req.headers.authorization.replace('Bearer ', '');
+    let token = req.headers.authorization;
     if (token) {
+        token.replace('Bearer ', '');
         try {
             return await jwt.verify(token, process.env.SECRET);
         } catch (e) {

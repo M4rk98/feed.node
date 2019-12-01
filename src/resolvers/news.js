@@ -25,4 +25,10 @@ export const NewsResolver = {
             return 200;
         },
     },
+
+    Article: {
+        author: async (article, args, { loaders }) => {
+            return await loaders.user.load(article.author);
+        },
+    }
 };
